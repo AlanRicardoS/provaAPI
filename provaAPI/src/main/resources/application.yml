@@ -1,0 +1,20 @@
+server:
+  servlet:
+    context-path: /prova
+  port: 8080
+spring:
+  application:
+    name: provaAPI
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+  jmx:
+    enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/prova?useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true&sslMode=DISABLED
+    username: root
+    password: root
