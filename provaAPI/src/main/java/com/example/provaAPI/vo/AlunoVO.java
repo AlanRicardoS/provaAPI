@@ -1,13 +1,13 @@
 package com.example.provaAPI.vo;
 
-import com.example.provaAPI.model.Aluno;
-import com.example.provaAPI.model.Materias;
-import org.modelmapper.ModelMapper;
-import org.springframework.hateoas.RepresentationModel;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.hateoas.RepresentationModel;
+
+import com.example.provaAPI.model.Aluno;
 
 /**
  * @author Alan Ricardo
@@ -17,7 +17,7 @@ public class AlunoVO extends RepresentationModel<AlunoVO> implements Serializabl
     private String nome;
     private Integer idade;
     private String email;
-    private List<Materias> materias = new ArrayList<>();
+    private List<MateriasVO> materias = new ArrayList<>();
 
     public static AlunoVO create (Aluno aluno){
         return new ModelMapper().map(aluno, AlunoVO.class);
@@ -56,11 +56,11 @@ public class AlunoVO extends RepresentationModel<AlunoVO> implements Serializabl
         this.email = email;
     }
 
-    public List<Materias> getMaterias() {
+    public List<MateriasVO> getMaterias() {
         return materias;
     }
 
-    public void setMaterias(final List<Materias> materias) {
+    public void setMaterias(final List<MateriasVO> materias) {
         this.materias = materias;
     }
 }

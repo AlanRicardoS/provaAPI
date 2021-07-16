@@ -52,7 +52,7 @@ public class AlunoService {
 
     public void setMateriaOnAluno(MateriasVO materiasVO, Long id) {
         var aluno = findById(id);
-        aluno.getMaterias().add(Materias.create(materiasVO));
+        aluno.getMaterias().add(materiasVO);
         alunoRepository.save(Aluno.create(aluno));
     }
     public AlunoVO createAluno(AlunoVO alunoVO){

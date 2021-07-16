@@ -23,8 +23,7 @@ public class AlunoController {
         this.alunoService = alunoService;
     }
 
-    @GetMapping(value = "/{id}",
-            produces = {"application/json", "application/xml", "application/x-yaml"})
+    @GetMapping(value = "/{id}", produces = {"application/json", "application/xml", "application/x-yaml"})
     public ResponseEntity<AlunoVO> findById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(alunoService.findById(id), HttpStatus.OK);
     }
@@ -34,17 +33,14 @@ public class AlunoController {
         return new ResponseEntity<>(alunoService.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping(
-            produces = {"application/json", "application/xml", "application/x-yaml"},
-            consumes = {"application/json", "application/xml", "application/x-yaml"})
+    @PostMapping(produces = {"application/json", "application/xml", "application/x-yaml"}, consumes = {"application/json", "application/xml", "application/x-yaml"})
     public ResponseEntity<AlunoVO> create(@RequestBody AlunoVO alunoVO) {
         var alunoReturn = alunoService.createAluno(alunoVO);
         return new ResponseEntity<>(alunoReturn, HttpStatus.CREATED);
     }
-    @PostMapping( value ="/materia/{id}",
-            produces = {"application/json", "application/xml", "application/x-yaml"},
-            consumes = {"application/json", "application/xml", "application/x-yaml"})
-    public ResponseEntity<?> setMateriaOnAluno(@RequestBody MateriasVO materiasVO, @PathVariable("id") Long id) {
+    @PostMapping( value ="/materia/{id}", produces = {"application/json", "application/xml", "application/x-yaml"}, consumes = {"application/json", "application/xml", "application/x-yaml"})
+    public ResponseEntity<?> setMateriaOnAluno(@RequestBody MateriasVO materiasVO, 
+    									       @PathVariable("id") Long id) {
         alunoService.setMateriaOnAluno(materiasVO, id);
         return ResponseEntity.ok().build();
     }
