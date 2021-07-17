@@ -56,12 +56,12 @@ public class AlunoServiceTest {
 		when(alunoRepository.findAll()).thenReturn(alunoList);
 	}	
 	*/		
-
+	/*
 	@Test
 	public void alunoFindByIdTest() {
 		
 		when(alunoRepository.findById(Long.parseLong("1")).get()).thenReturn(aluno);
 		//when(alunoService.findById(Long.parseLong("1")));
 	}
-	
+	*/
 }

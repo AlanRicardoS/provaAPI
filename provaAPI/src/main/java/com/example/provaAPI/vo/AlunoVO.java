@@ -9,9 +9,6 @@ import org.springframework.hateoas.RepresentationModel;
 
 import com.example.provaAPI.model.Aluno;
 
-/**
- * @author Alan Ricardo
- */
 public class AlunoVO extends RepresentationModel<AlunoVO> implements Serializable {
     private Long id;
     private String nome;
@@ -22,7 +19,6 @@ public class AlunoVO extends RepresentationModel<AlunoVO> implements Serializabl
     public static AlunoVO create (Aluno aluno){
         return new ModelMapper().map(aluno, AlunoVO.class);
     }
-
 
     public Long getId() {
         return id;
