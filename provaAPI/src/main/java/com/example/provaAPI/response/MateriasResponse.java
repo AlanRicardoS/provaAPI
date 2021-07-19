@@ -1,15 +1,21 @@
 package com.example.provaAPI.response;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 
 import com.example.provaAPI.enums.ErrorType;
 import com.example.provaAPI.enums.SuccessMessage;
 import com.example.provaAPI.utils.JsonUtils;
+import com.example.provaAPI.vo.MateriasVO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class MateriasResponse extends ApiResponse{
 
+	@JsonInclude(Include.NON_NULL)
+    private List<MateriasVO> materiasVOs;
+	
 	@JsonInclude(Include.NON_NULL)
 	private Long id;
 
@@ -29,6 +35,17 @@ public class MateriasResponse extends ApiResponse{
 		this.setHttpStatus(httpStatus);
 	}
 	
+	public MateriasResponse(SuccessMessage successMessage,
+			  				List<MateriasVO> materiasVOs,
+			  				HttpStatus httpStatus) {
+
+		this.setMessage(successMessage.getDesc());
+		this.setCode(successMessage.getCode());
+		this.setHttpCode(httpStatus.value());
+		this.setHttpStatus(httpStatus);
+		this.setMateriasVOs(materiasVOs);
+	}
+	
 	public MateriasResponse(ErrorType errorType, HttpStatus httpStatus) {
         super(errorType, httpStatus);
     }
@@ -36,8 +53,16 @@ public class MateriasResponse extends ApiResponse{
     public MateriasResponse(SuccessMessage successMessage, int httpcode) {
         super(successMessage, httpcode);
     }
-	
-    public Long getId() {
+
+    public List<MateriasVO> getMateriasVOs() {
+		return materiasVOs;
+	}
+
+	public void setMateriasVOs(List<MateriasVO> materiasVOs) {
+		this.materiasVOs = materiasVOs;
+	}
+
+	public Long getId() {
         return id;
     }
 

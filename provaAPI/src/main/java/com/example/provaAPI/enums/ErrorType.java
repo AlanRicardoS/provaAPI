@@ -7,6 +7,7 @@ public enum ErrorType {
 	FIELD_VALIDATION_(1, "Campo obrigatório não encontrado"),
 	FIELD_VALIDATION_NUMERIC_FIELD_INVALID(2, "O campo numérico é inválido"),
 	FIELD_VALIDATION_NAME_INVALID(3, "O nome é inválido"),
+	MATERIA_NOT_FOUND(4, "Matéria não encontrada."),
 
 	HTTP_CLIENT_TIMEOUT(HttpURLConnection.HTTP_CLIENT_TIMEOUT, "Request timeout"),
 	HTTP_UNSUPPORTED_TYPE(HttpURLConnection.HTTP_UNSUPPORTED_TYPE, "Unsupported media type"),

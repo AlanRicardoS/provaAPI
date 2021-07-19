@@ -40,7 +40,7 @@ public class MateriasController {
     	
         LOGGER.info("Buscando todas as matérias ...");
         
-        MateriasResponse apiResponse = null;
+        MateriasResponse apiResponse = provaApiBussiness.getAllMaterias();
     	
         return new ResponseEntity<MateriasResponse>(apiResponse, HttpStatus.OK);
     }
